@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FULBO — Cartelera y Resultados</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <span class="brand-mark">⚽</span>
+        <span>
+          FULBO<span class="brand-accent">.LIVE</span>
+          <small>AGENDA Y RESULTADOS</small>
+        </span>
+      </a>
+      <div class="top-status">
+        <span class="status-dot"></span>HORA ARGENTINA (ART)
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">PROGRAMACIÓN DIARIA</p>
+        <h1>Partidos de <span>Hoy</span> y Próximos Días</h1>
+        <p class="hero-copy">Consulta horarios, marcadores en vivo y filtra por liga, estado o equipo.</p>
+      </div>
+      <div class="hero-symbol" aria-hidden="true">🏟️</div>
+    </section>
+
+    <section class="panel toolbar" aria-label="Selector de fecha y acciones">
+      <div class="date-control">
+        <button id="prevDay" class="icon-button" type="button" title="Día anterior" aria-label="Día anterior">‹</button>
+        <div class="date-display">
+          <p class="eyebrow">FECHA SELECCIONADA</p>
+          <strong id="dateLabel">Cargando...</strong>
+        </div>
+        <button id="nextDay" class="icon-button" type="button" title="Día siguiente" aria-label="Día siguiente">›</button>
+      </div>
+
+      <div class="toolbar-actions">
+        <input id="dateInput" type="date" aria-label="Elegir fecha" />
+        <button id="todayButton" class="button button-primary" type="button">Hoy</button>
+        <button id="refreshButton" class="button button-secondary" type="button">Actualizar</button>
+      </div>
+    </section>
+
+    <section class="summary-grid" aria-label="Resumen de partidos">
+      <article class="panel summary-card">
+        <div class="summary-icon">📅</div>
+        <div>
+          <small>TOTAL PARTIDOS</small>
+          <strong id="totalMatches">—</strong>
+        </div>
+      </article>
+
+      <article class="panel summary-card">
+        <div class="summary-icon live-icon">🔴</div>
+        <div>
+          <small>EN VIVO</small>
+          <strong id="liveMatches">—</strong>
+        </div>
+      </article>
+
+      <article class="panel summary-card">
+        <div class="summary-icon done-icon">✓</div>
+        <div>
+          <small>FINALIZADOS</small>
+          <strong id="finishedMatches">—</strong>
+        </div>
+      </article>
+    </section>
+
+    <section aria-label="Listado de partidos">
+      <div class="section-heading">
+        <h2>Partidos del Día</h2>
+        <div class="filters">
+          <select id="leagueFilter" aria-label="Filtrar por liga">
+            <option value="all">Todas las ligas</option>
+          </select>
+
+          <select id="statusFilter" aria-label="Filtrar por estado">
+            <option value="all">Todos los estados</option>
+            <option value="live">En vivo</option>
+            <option value="scheduled">Programados</option>
+            <option value="finished">Finalizados</option>
+            <option value="other">Otros</option>
+          </select>
+
+          <input id="searchInput" type="search" placeholder="Buscar equipo, liga..." aria-label="Buscar equipo o liga" />
+        </div>
+      </div>
+
+      <div id="message" class="message" hidden></div>
+      <div id="matchesList" class="matches-list" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      FULBO<span>•</span>CARTELERA DE FÚTBOL<span>•</span>HORARIO ARGENTINA
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
